@@ -1,0 +1,29 @@
+﻿@using MudBlazor
+@inherits LayoutComponentBase
+
+<MudThemeProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />
+
+<MudLayout>
+    <MudAppBar Elevation="1" style="background-color: #3b8382; color: white" Size="Size.Large">
+       
+        <div>
+            <MudImage Src="images/logoERS.png" Alt="Simone" style="height: 20%; max-width: 20%;" />
+        </div>
+
+        <MudButton StartIcon="@Icons.Material.Filled.AddCircleOutline" Class="white-text" Size="Size.Large">Proposer un voyage</MudButton>
+        <MudButton StartIcon="@Icons.Material.Filled.DirectionsCar" Class="white-text" Size="Size.Large">Mes trajets</MudButton>
+
+ 
+        <MudMenu StartIcon="@Icons.Material.Filled.AccountCircle" EndIcon="@Icons.Material.Filled.KeyboardArrowDown" Color="Color.Inherit" Size="Size.Large">
+            <MudMenuItem style="color:#3b8382">Se connecter</MudMenuItem>
+            <MudMenuItem style="color:#3b8382">S'identifier</MudMenuItem>
+
+</MudMenu>
+	</MudAppBar>
+    <MudMainContent class="pa-6 pt-16 mt-6">
+      
+        @Body
+    </MudMainContent>
+</MudLayout>
