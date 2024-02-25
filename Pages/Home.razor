@@ -7,70 +7,65 @@
 <MudSnackbarProvider />
 
 
-<MudImage Src="images/Banniere.png" style="width: 100%; height: auto; object-fit: contain; padding: 0;" />
+<MudLayout>
+    <MudImage Src="images/Banniere.png" style="width: 100%; height: auto; object-fit: contain; padding: 0;" />
 
-<div style="display: flex; justify-content: center; align-items: center;">
-    <MudGrid style="width:50%; align-items: end; margin-top:5%" Justify="Justify.SpaceAround">
+    <div style="display: flex; justify-content: center; align-items: center;">
+        <MudGrid style="width:50%; align-items: end; margin-top:5%" Justify="Justify.SpaceAround">
 
-        <MudItem>
-            <MudAutocomplete T="string" Label="Depart" @bind-Value="value2" SearchFunc="@Search2"
-                             ResetValueOnEmptyText="@resetValueOnEmptyText"
-                             CoerceText="@coerceText" CoerceValue="@coerceValue"
-                             AdornmentIcon="@Icons.Material.Filled.Search" AdornmentColor="Color.Primary" />
+            <MudItem>
+                <MudAutocomplete T="string" Label="Depart" @bind-Value="value2" SearchFunc="@Search2"
+                                 ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                 CoerceText="@coerceText" CoerceValue="@coerceValue"
+                                 AdornmentIcon="@Icons.Material.Filled.Search" AdornmentColor="Color.Primary" />
+            </MudItem>
+            <MudItem>
+                <MudAutocomplete T="string" Label="Destination" @bind-Value="value2" SearchFunc="@Search2"
+                                 ResetValueOnEmptyText="@resetValueOnEmptyText"
+                                 CoerceText="@coerceText" CoerceValue="@coerceValue"
+                                 AdornmentIcon="@Icons.Material.Filled.Search" AdornmentColor="Color.Primary" />
+            </MudItem>
+
+
+            <MudItem>
+                <MudDatePicker @bind-Date="date" />
+
+            </MudItem>
+            <MudItem>
+                <MudButton Variant="Variant.Filled" Color="Color.Primary">Rechercher</MudButton>
+
+            </MudItem>
+
+        </MudGrid>
+    </div>
+
+
+
+    <MudGrid Justify="Justify.Center" Style="margin-top:5%">
+        <MudItem xs="5" style="display: flex; justify-content: center; align-items: center;">
+            <MudImage Src="images/RoadTripFace.png" />
         </MudItem>
-        <MudItem>
-            <MudAutocomplete T="string" Label="Destination" @bind-Value="value2" SearchFunc="@Search2"
-                             ResetValueOnEmptyText="@resetValueOnEmptyText"
-                             CoerceText="@coerceText" CoerceValue="@coerceValue"
-                             AdornmentIcon="@Icons.Material.Filled.Search" AdornmentColor="Color.Primary" />
+        <MudItem xs="4" style=" justify-content: center; align-items: center;">
+            <h3 style="color: #3b8382; margin-bottom: 5%;">Bénéficiez d’une Prime Covoiturage de 20 € avec Simone !</h3>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac suscipit elit. Aliquam erat volutpat. Maecenas at tortor non libero congue consectetur. Maecenas ut quam nec nunc feugiat lacinia. Sed non ligula quis enim dictum vehicula. Sed nec sapien at nisi accumsan tempor. Nullam ut purus nec ipsum lacinia fermentum.
+            </p>
         </MudItem>
-
-
-        <MudItem>
-            <MudDatePicker @bind-Date="date" />
-
-        </MudItem>
-        <MudItem>
-            <MudButton Variant="Variant.Filled" Color="Color.Primary">Rechercher</MudButton>
-
-        </MudItem>
-
     </MudGrid>
-</div>
+    <MudGrid Justify="Justify.Center" Style="margin-top:5%">
+        <MudItem xs="4" style=" justify-content: center; align-items: center;">
+            <h3 style="color: #3b8382; margin-bottom: 5%;">
+                Recevez 5 € de bienvenue !
+            </h3>
+            <p>Suspendisse potenti. Ut auctor arcu nec augue luctus, in fringilla nisl fermentum. Nullam nec enim dapibus, tincidunt ligula eget, suscipit elit. Maecenas at tortor non libero congue consectetur. Maecenas ut quam nec nunc feugiat lacinia. </p>
+        </MudItem>
+        <MudItem xs="5" style="display: flex; justify-content: center; align-items: center;">
+            <MudImage Src="images/Profil.png" />
+        </MudItem>
+    </MudGrid>
 
 
-
-<MudGrid Justify="Justify.Center" Style="margin-top:5%">
-    <MudItem xs="5" style="display: flex; justify-content: center; align-items: center;">
-        <MudImage Src="images/RoadTripFace.png" />
-    </MudItem>
-    <MudItem xs="4" style=" justify-content: center; align-items: center;">
-        <h3 style="color: #3b8382; margin-bottom: 5%;">Bénéficiez d’une Prime Covoiturage de 20 € avec Simone !</h3>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac suscipit elit. Aliquam erat volutpat. Maecenas at tortor non libero congue consectetur. Maecenas ut quam nec nunc feugiat lacinia. Sed non ligula quis enim dictum vehicula. Sed nec sapien at nisi accumsan tempor. Nullam ut purus nec ipsum lacinia fermentum.
-        </p>
-    </MudItem>
-</MudGrid>
-<MudGrid Justify="Justify.Center" Style="margin-top:5%">
-    <MudItem xs="4" style=" justify-content: center; align-items: center;">
-        <h3 style="color: #3b8382; margin-bottom: 5%;">
-            Recevez 5 € de bienvenue !
-        </h3>
-        <p>Suspendisse potenti. Ut auctor arcu nec augue luctus, in fringilla nisl fermentum. Nullam nec enim dapibus, tincidunt ligula eget, suscipit elit. Maecenas at tortor non libero congue consectetur. Maecenas ut quam nec nunc feugiat lacinia. </p>
-    </MudItem>
-    <MudItem xs="5" style="display: flex; justify-content: center; align-items: center;">
-        <MudImage Src="images/Profil.png" />
-    </MudItem>
-</MudGrid>
-
-<MudPaper Height="200px" Width="100%" Style="margin-top:5%">
-    <MudContainer Fixed="true">
-        <MudPaper Height="200px" Width="100%" Square="true" Class="mud-theme-primary" style="color:#054752"></MudPaper>
-
-    </MudContainer>
-</MudPaper>
-
-
+</MudLayout>
 
 
 @code {
