@@ -6,38 +6,41 @@
 <MudSnackbarProvider />
 
 <MudLayout>
-    <MudAppBar Elevation="1" style="background-color: #3b8382; color: white" Size="Size.Large">
+	<MudAppBar Elevation="1" style="background-color: #3b8382; color: white" Size="Size.Large">
 
-        <div>
-            <MudImage Src="images/logoERS.png" Alt="Simone" style="height: 20%; max-width: 20%;" />
-        </div>
+		<div>
+			<MudImage Src="images/logoERS.png" Alt="Simone" style="height: 20%; max-width: 20%;" />
+		</div>
 
-        <MudButton StartIcon="@Icons.Material.Filled.AddCircleOutline" Class="white-text" Size="Size.Large">Proposer un voyage</MudButton>
-        <MudButton StartIcon="@Icons.Material.Filled.DirectionsCar" Class="white-text" Size="Size.Large">Mes trajets</MudButton>
-
-
-        <MudMenu StartIcon="@Icons.Material.Filled.AccountCircle" EndIcon="@Icons.Material.Filled.KeyboardArrowDown" Color="Color.Inherit" Size="Size.Large">
-            <MudMenuItem style="color:#3b8382">Se connecter</MudMenuItem>
-            <MudMenuItem style="color:#3b8382">S'identifier</MudMenuItem>
-
-        </MudMenu>
-    </MudAppBar>
-    <MudMainContent class="pa-6 pt-16 mt-6">
-
-        @Body
-    </MudMainContent>
-    <MudPaper Height="200px" Width="100%" Style="margin-top:5%">
-        <MudContainer Fixed="true">
-            <MudPaper Height="200px" Width="100%" Square="true" Class="mud-theme-primary" style="color:#054752">
+		<MudButton StartIcon="@Icons.Material.Filled.AddCircleOutline" Class="white-text" Size="Size.Large">Proposer un voyage</MudButton>
+		<MudButton StartIcon="@Icons.Material.Filled.DirectionsCar" Class="white-text" Size="Size.Large">Mes trajets</MudButton>
 
 
+		<MudMenu StartIcon="@Icons.Material.Filled.AccountCircle" EndIcon="@Icons.Material.Filled.KeyboardArrowDown" Color="Color.Inherit" Size="Size.Large">
+			<MudMenuItem style="color:#3b8382"> Se connecter</MudMenuItem>
+			<MudMenuItem style="color:#3b8382">S'identifier</MudMenuItem>
 
-            </MudPaper>
-        </MudContainer>
-    </MudPaper>
+		</MudMenu>
+	</MudAppBar>
+	<MudMainContent class="pa-6 pt-16 mt-6">
 
-    <MudButton Variant="Variant.Text"> Transparence des plateformes</MudButton>
-    <MudButton Variant="Variant.Text">Informations légales</MudButton>
-    <MudButton Variant="Variant.Text">Paramètres des cookies</MudButton>
-    <MudImage Src="images/EVStext.png" Alt="Simone" style="align-content:flex-end; height: 15%; max-width: 15%;" />
+		@Body
+	</MudMainContent>
+	<feet>
+
+		<MudPaper Height="200px" Width="100%" Style="margin-top:5%">
+			<MudContainer Fixed="true">
+				<MudPaper Height="200px" Width="100%" Square="true" Class="mud-theme-primary" style="color:#054752">
+
+
+
+				</MudPaper>
+			</MudContainer>
+		</MudPaper>
+
+		<MudButton Variant="Variant.Text"> Transparence des plateformes</MudButton>
+		<MudButton Variant="Variant.Text">Informations légales</MudButton>
+		<MudButton Variant="Variant.Text">Paramètres des cookies</MudButton>
+		<MudImage Src="images/EVStext.png" Alt="Simone" style="align-content:flex-end; height: 15%; max-width: 15%;" />
+	</feet>
 </MudLayout>

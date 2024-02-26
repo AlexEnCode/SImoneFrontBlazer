@@ -1,0 +1,32 @@
+﻿@page "/connection"
+@using MudBlazor
+@inherits LayoutComponentBase
+
+<MudThemeProvider Theme="_currentTheme" />
+<MudDialogProvider />
+<MudSnackbarProvider />
+
+
+<h1 style="color:#3b8382; margin:5%">Je me connecte :</h1>
+
+<MudTextField @bind-Value="TextValue" Label="Pseudo" Variant="Variant.Outlined" Style="width:25%;"></MudTextField>
+
+<MudTextField @bind-Value="TextValue" Label="Mot-de-Passe" Variant="Variant.Outlined" Style="width:25%;"></MudTextField>
+
+<MudButton Variant="Variant.Filled" DisableElevation="true" Color="Color.Primary" style="width:25%; margin-top:5%; margin-bottom:2%">Je me connecte</MudButton>
+
+<p>Vous n'avez pas encore de compte? <br />Cliquer ici.</p>
+
+@code {
+	public string TextValue { get; set; }
+
+	private readonly MudTheme _currentTheme = new()
+		{
+			Palette = new PaletteLight
+			{
+				Primary = "#3b8382",
+			}
+		};
+
+
+}
