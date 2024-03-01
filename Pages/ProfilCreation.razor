@@ -9,7 +9,7 @@
 
 <a style="display: flex; justify-content: center; align-items: center; ">
 
-<MudText Typo="Typo.h2" Color="Color.Primary" Style="margin:2em">Creation de votre compte En Voiture Simone</MudText>
+<MudText Typo="Typo.h2" Color="Color.Primary" Style="margin:2em; margin-left:0em">Creation de votre compte En Voiture Simone !</MudText>
 
 <MudGrid >
 	<MudItem xs="12" sm="7">
@@ -51,17 +51,13 @@
 				</MudFileUpload>
 				</a>
 
-
-
 				<a>
 					<MudSwitch @bind-Value="SmallTalk" Color="Color.Secondary" UnCheckedColor="Color.Primary" Converter="@(new SmallTalkToBoolConverter())"> @(SmallTalk)</MudSwitch>
 					<MudSwitch @bind-Value="AcceptMusic" Color="Color.Secondary" UnCheckedColor="Color.Primary" Converter="@(new AcceptMusicToBoolConverter())"> @(AcceptMusic)</MudSwitch>
 					<MudSwitch @bind-Value="AcceptFood" Color="Color.Secondary" UnCheckedColor="Color.Primary" Converter="@(new AcceptFoodToBoolConverter())"> @(AcceptFood)</MudSwitch>
 					<MudSwitch @bind-Value="AcceptPet" Color="Color.Secondary" UnCheckedColor="Color.Primary" Converter="@(new AcceptPetToBoolConverter())"> @(AcceptPet)</MudSwitch>
 					<MudSwitch @bind-Value="AcceptSmoker" Color="Color.Secondary" UnCheckedColor="Color.Primary" Converter="@(new AcceptSmokerToBoolConverter())"> @(AcceptSmoker)</MudSwitch>
-
 				</a>
-
 
 				<a class="d-flex align-center justify-space-between" style="margin:2em">
 						<MudCheckBox T="bool" Required="true" RequiredError="Vous de vez accepter nos conditons d'utilisation" Label="J'accepte les conditons d'utilisation de EnVoitureSimone!" />
@@ -164,9 +160,6 @@
 		}
 	}
 
-
-
-
 	public class AcceptMusicToBoolConverter : BoolConverter<string>
 	{
 
@@ -214,7 +207,6 @@
 		}
 	}
 
-
 	public class AcceptFoodToBoolConverter : BoolConverter<string>
 	{
 
@@ -261,7 +253,6 @@
 			}
 		}
 	}
-
 
 	public class AcceptPetToBoolConverter : BoolConverter<string>
 	{
@@ -358,7 +349,6 @@
 		}
 	}
 
-
 	private FileModel model = new();
 	private FileModelFluentValidator ValidationRules = new();
 	private bool SuppressOnChangeWhenInvalid;
@@ -413,5 +403,4 @@
 			return result.Errors.Select(e => e.ErrorMessage);
 		};
 	}
-
 }
