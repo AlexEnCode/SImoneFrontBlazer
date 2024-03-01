@@ -2,10 +2,6 @@
 @using MudBlazor
 @inherits LayoutComponentBase
 
-<MudThemeProvider Theme="_currentTheme" />
-<MudDialogProvider />
-<MudSnackbarProvider />
-
 
 <MudLayout>
     <MudImage Src="images/Banniere.png" style="width: 100%; height: auto; object-fit: contain; padding: 0;" />
@@ -95,14 +91,6 @@
 
 
     bool _drawerOpen = true;
-    private readonly MudTheme _currentTheme = new()
-        {
-            Palette = new PaletteLight
-            {
-                Primary = "#3b8382",
-            }
-        };
-    void DrawerToggle() => _drawerOpen = !_drawerOpen;
 
 
     private async Task<IEnumerable<string>> Search1(string value)

@@ -1,7 +1,7 @@
 ﻿@using MudBlazor
 @inherits LayoutComponentBase
 
-<MudThemeProvider />
+<MudThemeProvider Theme="_currentTheme" />
 <MudDialogProvider />
 <MudSnackbarProvider />
 
@@ -18,7 +18,7 @@
 
 		<MudMenu StartIcon="@Icons.Material.Filled.AccountCircle" EndIcon="@Icons.Material.Filled.KeyboardArrowDown" Color="Color.Inherit" Size="Size.Large">
 			<MudMenuItem style="color:#3b8382"> Se connecter</MudMenuItem>
-			<MudMenuItem style="color:#3b8382">S'identifier</MudMenuItem>
+			<MudMenuItem style="color:#3b8382">Créer un compte</MudMenuItem>
 
 		</MudMenu>
 	</MudAppBar>
@@ -44,3 +44,15 @@
 		<MudImage Src="images/EVStext.png" Alt="Simone" style="align-content:flex-end; height: 15%; max-width: 15%;" />
 	</feet>
 </MudLayout>
+
+@code{
+
+	private readonly MudTheme _currentTheme = new()
+		{
+			Palette = new PaletteLight
+			{
+				Primary = "#3b8382",
+				Secondary = "#CC755E",
+			}
+		};
+}
