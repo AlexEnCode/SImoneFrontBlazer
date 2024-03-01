@@ -7,22 +7,22 @@
 @inject ISnackbar Snackbar
 @inherits LayoutComponentBase
 
-<h3>Creation de votre compte En voiture Simone :</h3>
+<a style="display: flex; justify-content: center; align-items: center; ">
 
+<MudText Typo="Typo.h2" Color="Color.Primary" Style="margin:2em">Creation de votre compte En Voiture Simone</MudText>
 
-
-
-<MudGrid>
+<MudGrid >
 	<MudItem xs="12" sm="7">
 		<MudPaper Class="pa-4">
 			<MudForm @ref="form" @bind-IsValid="@success" @bind-Errors="@errors">
 				<MudTextField T="string" Label="Nom" Required="true" RequiredError="Votre nom nous est nécessaire!" />
 				<MudTextField T="string" Label="Prenom" Required="true" RequiredError="Votre prenom nous est nécessaire!" />
+				<MudTextField T="string" Label="Numéro de Téléphone" Required="true" RequiredError="Votre numéro nous est nécessaire!" />
 				<MudDatePicker Label="Date" Required="true" RequiredError="Nous avons besoin de votre date de naissance!" />
 				<MudTextField T="string" Label="Pseudonyme" Required="true" RequiredError="Un pseudo nous est nécessaire!" />
 				<MudTextField T="string" Label="Email" Required="true" RequiredError="Votre email nous est nécessaire!"
 							  Validation="@(new EmailAddressAttribute() {ErrorMessage = "The email address is invalid"})" />
-				<MudTextField T="string" Label="Modèle de votre voiture" Required="false" />
+				<MudTextField T="string" Label="Description de votre voiture" Required="false" />
 				<MudTextField T="string" Label="Password" HelperText="Choose a strong password" @ref="pwField1"
 							  InputType="InputType.Password"
 							  Validation="@(new Func<string, IEnumerable<string>>(PasswordStrength))" Required="true"
@@ -30,55 +30,51 @@
 				<MudTextField T="string"
 							  Label="Password" HelperText="Repeat the password" InputType="InputType.Password"
 							  Validation="@(new Func<string, string>(PasswordMatch))" />
-				<div>
+
+				<a style="margin:2em">
+				<MudFileUpload Style="margin:1em" T="IBrowserFile" For="@(() => model.File)" @bind-Files="model.File" OnFilesChanged="UploadFiles" Accept=".png, .jpg" SuppressOnChangeWhenInvalid="SuppressOnChangeWhenInvalid">
+					<ButtonTemplate>
+						<MudButton HtmlTag="label"
+								   Variant="Variant.Filled"
+								   Color="Color.Primary"
+								   StartIcon="@Icons.Material.Filled.CloudUpload"
+								   for="@context.Id">
+							Enregistrer votre photo
+						</MudButton>
+						<MudButton OnClick="@context.Actions.ClearAsync"
+								   Variant="Variant.Filled"
+								   Color="Color.Primary"
+								   StartIcon="@Icons.Material.Filled.Clear">
+							Supprimer votre photo
+						</MudButton>
+					</ButtonTemplate>
+				</MudFileUpload>
+				</a>
+
+
+
+				<a>
 					<MudSwitch @bind-Value="SmallTalk" Color="Color.Secondary" UnCheckedColor="Color.Primary" Converter="@(new SmallTalkToBoolConverter())"> @(SmallTalk)</MudSwitch>
 					<MudSwitch @bind-Value="AcceptMusic" Color="Color.Secondary" UnCheckedColor="Color.Primary" Converter="@(new AcceptMusicToBoolConverter())"> @(AcceptMusic)</MudSwitch>
 					<MudSwitch @bind-Value="AcceptFood" Color="Color.Secondary" UnCheckedColor="Color.Primary" Converter="@(new AcceptFoodToBoolConverter())"> @(AcceptFood)</MudSwitch>
 					<MudSwitch @bind-Value="AcceptPet" Color="Color.Secondary" UnCheckedColor="Color.Primary" Converter="@(new AcceptPetToBoolConverter())"> @(AcceptPet)</MudSwitch>
 					<MudSwitch @bind-Value="AcceptSmoker" Color="Color.Secondary" UnCheckedColor="Color.Primary" Converter="@(new AcceptSmokerToBoolConverter())"> @(AcceptSmoker)</MudSwitch>
-				</div>
 
-				<MudCard>
+				</a>
 
-						<MudCardContent>
-							<MudTextField @bind-Value="model.Name"
-										  For="@(() => model.Name)"
-										  Immediate="true"
-										  Label="Name" />
-							<MudFileUpload T="IBrowserFile" For="@(() => model.File)" @bind-Files="model.File" OnFilesChanged="UploadFiles" SuppressOnChangeWhenInvalid="SuppressOnChangeWhenInvalid">
-								<ButtonTemplate>
-									<MudButton HtmlTag="label"
-											   Variant="Variant.Filled"
-											   Color="Color.Primary"
-											   StartIcon="@Icons.Material.Filled.CloudUpload"
-											   for="@context.Id">
-										Upload Files
-									</MudButton>
-									<MudButton OnClick="@context.Actions.ClearAsync"
-											   Variant="Variant.Filled"
-											   Color="Color.Primary"
-											   StartIcon="@Icons.Material.Filled.Clear">
-										Clear Files
-									</MudButton>
-								</ButtonTemplate>
-							</MudFileUpload>
-						</MudCardContent>
-						<MudCardActions>
-							<MudSwitch Color="Color.Primary" @bind-Checked="SuppressOnChangeWhenInvalid">Suppress OnChange When Invalid</MudSwitch>
-							<MudButton Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto" OnClick="@(async () => await Submit())">Submit</MudButton>
-						</MudCardActions>
 
-				</MudCard>
-
-				<div class="d-flex align-center justify-space-between">
-					<MudCheckBox T="bool" Required="true" RequiredError="You must agree" Label="J'accepte les conditons d'utilisation de EnVoitureSimone!" />
-					<MudButton Variant="Variant.Filled" Color="Color.Primary" Disabled="@(!success)" Class="ml-auto">Creer votre compte</MudButton>
-				</div>
+				<a class="d-flex align-center justify-space-between" style="margin:2em">
+						<MudCheckBox T="bool" Required="true" RequiredError="Vous de vez accepter nos conditons d'utilisation" Label="J'accepte les conditons d'utilisation de EnVoitureSimone!" />
+				</a>
+					<MudCardActions>
+						<MudButton Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto" OnClick="@(async () => await Submit())">Creer votre compte</MudButton>
+					</MudCardActions>
+				
 			</MudForm>
 		</MudPaper>
 	</MudItem>
 </MudGrid>
-
+</a>
 
 
 
@@ -89,7 +85,7 @@
 	public string AcceptMusic { get; set; } = "J'aime écouter de la musique!";
 	public string AcceptFood { get; set; } = "J'aime manger en voyageant!";
 	public string AcceptPet { get; set; } = "J'aime beaucoup les animaux!";
-	public string AcceptSmoker { get; set; } = "Avec moi tu peux fumer sans problème !";
+	public string AcceptSmoker { get; set; } = "Avec moi tu peux fumer sans problème!";
 
 	bool success;
 	string[] errors = { };
@@ -369,7 +365,7 @@
 
 	private void UploadFiles(InputFileChangeEventArgs e)
 	{
-		//If SuppressOnChangeWhenInvalid is false, perform your validations here
+
 		Snackbar.Configuration.PositionClass = Defaults.Classes.Position.TopCenter;
 		Snackbar.Add($"This file has the extension {model.File.Name.Split(".").Last()}", Severity.Info);
 
@@ -385,6 +381,7 @@
 			Snackbar.Add("Submited!");
 		}
 	}
+
 
 	public class FileModel
 	{
@@ -404,7 +401,7 @@
 			.NotEmpty();
 			When(x => x.File != null, () =>
 			{
-				RuleFor(x => x.File.Size).LessThanOrEqualTo(10485760).WithMessage("The maximum file size is 10 MB");
+				RuleFor(x => x.File.Size).LessThanOrEqualTo(10485760).WithMessage("La taille de votre fichier ne peut être suppérieur à 10 MB");
 			});
 		}
 
