@@ -46,7 +46,14 @@
 
 	<MudGrid Justify="Justify.Center" Style="margin-top:5%">
 		<MudItem xs="5" style="display: flex; justify-content: center; align-items: center;">
-			<MudImage Src="images/RoadTripFace.png" Style="width:80%" />
+			@if (this.darkModeActive)
+			{
+				<MudImage Src="images/VoitureFaceDark.png" Style="width:80%" />
+			}
+			else
+			{
+				<MudImage Src="images/VoitureFaceLight.png" Style="width:80%" />
+			}
 		</MudItem>
 		<MudItem xs="4" style=" justify-content: center; align-items: center;">
 			<h3 style="color: #3b8382; margin-bottom: 5%;">Bénéficiez d’une Prime Covoiturage de 20 € avec Simone !</h3>
@@ -63,7 +70,15 @@
 			<p>Suspendisse potenti. Ut auctor arcu nec augue luctus, in fringilla nisl fermentum. Nullam nec enim dapibus, tincidunt ligula eget, suscipit elit. Maecenas at tortor non libero congue consectetur. Maecenas ut quam nec nunc feugiat lacinia. </p>
 		</MudItem>
 		<MudItem xs="5" style="display: flex; justify-content: center; align-items: center;">
-			<MudImage Src="images/Profil.png" Style="width:80%" />
+
+			@if (this.darkModeActive)
+			{
+				<MudImage Src="images/VoitureProfilDark.png" Style="width:80%" />
+			}
+			else
+			{
+				<MudImage Src="images/VoitureProfilLight.png" Style="width:80%" />
+			}
 		</MudItem>
 	</MudGrid>
 
@@ -72,6 +87,9 @@
 
 
 @code {
+	[CascadingParameter]
+	protected bool darkModeActive { get; set; }
+
 	public int IntValue { get; set; }
 	DateTime? date = DateTime.Today;
 	private bool resetValueOnEmptyText;

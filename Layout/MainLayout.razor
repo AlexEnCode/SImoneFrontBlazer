@@ -21,13 +21,16 @@
         <MudMenu StartIcon="@Icons.Material.Filled.AccountCircle" EndIcon="@Icons.Material.Filled.KeyboardArrowDown" Color="Color.Inherit" Size="Size.Large">
             <MudMenuItem Href="/connection" style="color:#3b8382"> Se connecter</MudMenuItem>
             <MudMenuItem Href="/profilcreation" style="color:#3b8382">Créer un compte</MudMenuItem>
-            <MudMenuItem>  <MudSwitch @bind-Value="@this.darkModeActive" Color="Color.Primary" Class="ma-4" T="bool" Label="Toggle Light/Dark Mode" onclick="@ToggleDarkMode" /></MudMenuItem>
+           
         </MudMenu>
     </MudAppBar>
 
+
+    <CascadingValue Value="darkModeActive">
     <MudMainContent>
         @Body
     </MudMainContent>
+</CascadingValue>
 
     <feet>
 
@@ -37,7 +40,7 @@
 				<MudItem sm="4" >
                     <MudText Typo="Typo.h5" Style="margin:1em">Voyagez avec nous</MudText>
 
-                   
+                    <MudMenuItem>  <MudSwitch @bind-Value="@this.darkModeActive" Color="Color.Primary" Class="ma-4" T="bool" Label="Toggle Light/Dark Mode" onclick="@ToggleDarkMode" /></MudMenuItem>
 
 
                 </MudItem>
@@ -85,15 +88,14 @@
 </MudLayout>
 
 @code {
- 
 
-
+   
     private bool darkModeActive = false;
+
     private  MudTheme CurrentTheme = DefaultTheme;
 
-
- 
-    void ToggleDarkMode()
+    
+    public void ToggleDarkMode()
     {
         this.darkModeActive = !this.darkModeActive;
         this.CurrentTheme = this.darkModeActive ? darkTheme : DefaultTheme;
@@ -114,11 +116,11 @@
             Palette = new Palette
             {
                 Primary = "#3b8382",
-                Secondary = "#CC755E",
-                Tertiary = "#ffffff",
-                Black = "#27272f",
-                Background = "#32333d",
-                BackgroundGrey = "#27272f"
+                Secondary = "#FEE97E",
+                Tertiary = "#FEE97E",
+                Black = "#FEE97E",
+                Background = "#5C637D",
+                BackgroundGrey = "#5C637D"
                
             }
         };
